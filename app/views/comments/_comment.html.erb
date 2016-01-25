@@ -2,7 +2,7 @@
   <div class="comment_content">
     <p class='comment_name'><strong><%= comment.name %></strong></p>
     <p class='comment_body'><%= comment.body %></p>
-    <p class='comment_time'>Commited Created on: <%= @post.created_at.strftime("%B, %d, %Y") %> | <%= link_to 'Delete', [comment.post, comment], method: :delete, class: 'button', data: { confirm: 'Are you sure?' } %></p>
+    <p class='comment_time'>Commited Created on: <%= @post.created_at.strftime("%B, %d, %Y") %><% if user_signed_in? %> | <%= link_to 'Delete', [comment.post, comment], method: :delete, class: 'button', data: { confirm: 'Are you sure?' } %><% end %></p>
   </div>
 
 </div>
