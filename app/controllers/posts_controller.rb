@@ -1,4 +1,3 @@
-require "pry"
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
@@ -31,7 +30,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    binding.pry
     @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to @post
