@@ -20,15 +20,17 @@
     <%= f.text_area :body %>
   </p>
 
-  <p>Tags:<br>
-    <%= f.fields_for :tags do |t| %>
-      <%#= t.label :name %>
-      <%= t.text_field :name %>
-    <% end %>
-  </p>
+  <p>Tags:</p>
 
   <p>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  </p>
+
+  <p>
+    <%= f.fields_for :tags, @post.tags.build do |tag| %>
+      <%= tag.label :name %>
+      <%= tag.text_field :name %>
+    <% end %>
   </p>
 
   <p>
