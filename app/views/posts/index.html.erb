@@ -4,8 +4,10 @@
     <p class='date'><%= post.created_at.strftime("%B, %d, %Y") %></p>
     <div id="tags">
       <ul>
-        <% post.tags.each do |tag| %>
-          <li><%= tag.name %></li>
+        <% post.tags.uniq.each do |tag| %>
+          <% if tag.name != "" && tag.name != nil %>
+            <li><%= tag.name %></li>
+          <% end %>
         <% end %>
       </ul>
     </div>

@@ -17,9 +17,9 @@
     <%= f.text_area :body, class: "form-control" %>
 
     <%= f.label('New Tag Name') %>
-    <div class="form-control">
-      <%= text_field_tag 'post[tags_attributes[name]]' %>
-    </div>
+
+    <%= text_field_tag 'post[tags_attributes[name]]', "", class: 'form-control'%>
+
 
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :inline => true %><br>
 
