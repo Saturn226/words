@@ -16,29 +16,16 @@
     <%= f.label :body %><br>
     <%= f.text_area :body, class: "form-control" %>
 
-<<<<<<< HEAD
-  <p>Tags:</p>
-=======
-    <%= f.fields_for :tags do |t| %>
-      <%= t.label :New_Tag %>
-      <%= t.text_field :name, class: "form-control" %> <%#if t.object.id.nil? %>
-    <% end %>
->>>>>>> master
-
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :inline => true %><br>
 
-    <%= f.submit 'Create Post', class: 'btn btn-default btn-primary' %>
 
-  <p>
+
     <%= f.fields_for :tags, @post.tags.build do |tag| %>
       <%= tag.label :name %>
       <%= tag.text_field :name %>
     <% end %>
-  </p>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= f.submit 'Create Post', class: 'btn btn-default btn-primary' %>
 
 
 <% end %>
