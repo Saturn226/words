@@ -16,10 +16,10 @@
     <%= f.label :body %><br>
     <%= f.text_area :body, class: "form-control" %>
 
-    <%= f.fields_for :tags, @post.tags.build do |t| %>
-      <%= t.label :name %>
-      <%= t.text_field :name, class: "form-control" %>
-    <% end %>
+    <%= f.label('New Tag Name') %>
+    <div class="form-control">
+      <%= text_field_tag 'post[tags_attributes[name]]' %>
+    </div>
 
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :inline => true %><br>
 

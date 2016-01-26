@@ -1,3 +1,4 @@
+require 'pry'
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
@@ -8,7 +9,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @tags = @post.tags.build
   end
 
   def create
@@ -26,7 +26,6 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    #@tags = @post.tags.build
   end
 
   def update
