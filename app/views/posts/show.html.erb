@@ -23,4 +23,12 @@
     <%= render 'comments/form' %>
 
   </div>
+
+  <div id="tags">
+    <ul>
+      <% @post.tags.each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>

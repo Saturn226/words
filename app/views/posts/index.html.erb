@@ -2,5 +2,12 @@
   <div class="post-container">
     <h2 class='title'><%= link_to post.title, post %></h2>
     <p class='date'><%= post.created_at.strftime("%B, %d, %Y") %></p>
+    <div id="tags">
+      <ul>
+        <% post.tags.each do |tag| %>
+          <li><%= tag.name %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>

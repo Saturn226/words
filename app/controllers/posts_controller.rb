@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
-  
+
   def index
     @posts = Post.all.order('created_at DESC')
   end
 
   def new
     @post = Post.new
+    @tags = @post.tags.build
   end
 
   def create
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    #@tags = @post.tags.build
   end
 
   def update
@@ -45,6 +47,6 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, tag_ids: [], tags_attributes: [:name])
     end
 end
