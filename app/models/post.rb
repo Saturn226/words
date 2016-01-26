@@ -19,8 +19,10 @@ class Post < ActiveRecord::Base
   end
 
   def tags_attributes=(tag_attributes)
-    tag = Tag.find_or_create_by(tag_attributes)
-    self.tags << tag unless self.tags.include? tag
+    if !tag_attributes.empty? && tag_attributes != ''
+      tag = Tag.find_or_create_by(tag_attributes)
+      self.tags << tag unless self.tags.include? tag
+    end
   end
 
 end
