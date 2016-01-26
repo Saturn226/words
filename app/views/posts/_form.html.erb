@@ -10,29 +10,20 @@
     </div>
   <% end %>
 
-  <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+    <%= f.text_field :title, class: "form-control" %>
 
-  <p>
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
+    <%= f.text_area :body, class: "form-control" %>
 
-  <p>Tags:<br>
     <%= f.fields_for :tags do |t| %>
-      <%#= t.label :name %>
-      <%= t.text_field :name %>
+      <%= t.label :New_Tag %>
+      <%= t.text_field :name, class: "form-control" %> <%#if t.object.id.nil? %>
     <% end %>
-  </p>
 
-  <p>
-    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
-  </p>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :inline => true %><br>
 
-  <p>
-    <%= f.submit %>
-  </p>
+    <%= f.submit 'Create Post', class: 'btn btn-default btn-primary' %>
+
 
 <% end %>
