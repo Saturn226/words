@@ -24,7 +24,4 @@
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :inline => true %><br>
 
     <%= f.submit 'Create Post', class: 'btn btn-default btn-primary' %>
-
-    <%= f.submit %>
-  </p>
 <% end %>
