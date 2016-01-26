@@ -16,16 +16,13 @@
     <%= f.label :body %><br>
     <%= f.text_area :body, class: "form-control" %>
 
-    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :inline => true %><br>
-
-
-
-    <%= f.fields_for :tags, @post.tags.build do |tag| %>
-      <%= tag.label :name %>
-      <%= tag.text_field :name %>
+    <%= f.fields_for :tags, @post.tags.build do |t| %>
+      <%= t.label :name %>
+      <%= t.text_field :name, class: "form-control" %>
     <% end %>
 
-  <%= f.submit 'Create Post', class: 'btn btn-default btn-primary' %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :inline => true %><br>
 
+  <%= f.submit 'Create Post', class: 'btn btn-default btn-primary' %>
 
 <% end %>
